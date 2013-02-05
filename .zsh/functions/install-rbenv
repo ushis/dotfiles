@@ -7,6 +7,6 @@ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-buil
 [ $? -ne 0 ] && return 1
 
 cat > $ZSH/local/rbenv.zsh <<EOF
-export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=\$HOME/.rbenv/bin:\$PATH
 eval "\$(rbenv init -)"
 EOF
