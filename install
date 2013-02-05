@@ -6,8 +6,9 @@ install() {
   local override target="$2/$(basename $1)"
 
   if [ -e "$target" ]; then
-    vared -p "Override $target? [y|N]" override
+    vared -p "Override $target? [y|N] " override
     [[ "$override" =~ '[yY]' ]] || return 1
+    printf 'rm -rf %s\n' "$target"
     rm -rf "$target"
   fi
 
