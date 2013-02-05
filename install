@@ -19,7 +19,7 @@ install() {
 install_all() {
   local p
 
-  for p in $1/.*~$1/.git*; do
+  for p in $1/.*~$1/.git~$1/.gitignore; do
     install "$p" "$2"
   done
 }

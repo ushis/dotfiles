@@ -1,0 +1,12 @@
+[user]
+  name = ushi
+  email = ushi@porkbox.net
+  signingkey = 0F957DE0
+[color]
+  ui = auto
+[push]
+  default = tracking
+[core]
+  editor = vim
+[help]
+  autocorrect = 1
