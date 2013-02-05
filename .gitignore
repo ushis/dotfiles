@@ -3,3 +3,4 @@
 *.swo
 
 # Local zsh
+/.zsh/local/*
