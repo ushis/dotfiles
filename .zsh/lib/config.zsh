@@ -34,6 +34,11 @@ setopt pushd_ignore_dups
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
 
+# Keybindings
+bindkey "^[OH"  beginning-of-line
+bindkey "^[OF"  end-of-line
+bindkey "^[[3~" delete-char
+
 # Correction
 #setopt correct_all
 #
