@@ -1,7 +1,9 @@
 # $ZSH/functions/install-rbenv
 
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+[ $? -ne 0 ] && return 1
 
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 [ $? -ne 0 ] && return 1
 
 cat > $ZSH/local/rbenv.zsh <<EOF
