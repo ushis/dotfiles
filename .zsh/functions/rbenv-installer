@@ -1,0 +1,61 @@
+# $ZSH/functions/rbenv-installer
+
+# rbenv target dir
+__rbenv_home=~/.rbenv
+
+# rbenv git repo
+__rbenv_source='git://github.com/sstephenson/rbenv.git'
+
+# rbenv plugins i need
+__rbenv_plugins=(
+  'git://github.com/sstephenson/ruby-build.git'
+  'git://github.com/rkh/rbenv-update.git'
+  'git://github.com/chriseppstein/rbenv-each.git'
+)
+
+# installs something
+__rbenv_install() {
+  printf 'git clone %s %s\n' "$1" "$2"
+  git clone "$1" "$2"
+}
+
+# installs a plugin
+__rbenv_install_plugin() {
+  __rbenv_install "$1" "$__rbenv_home/plugins/${${1##*/}%%.*}"
+}
+
+# installs everything
+__rbenv_install_all() {
+  local plugin
+
+  __rbenv_install "$__rbenv_source" "$__rbenv_home" || return 1
+
+  for plugin in $__rbenv_plugins; do
+    __rbenv_install_plugin "$plugin"
+  done
+
+  cat > $ZSH/local/rbenv.zsh <<EOF
+export PATH=\$HOME/.rbenv/bin:\$PATH
+eval "\$(rbenv init -)"
+EOF
+}
+
+# uninstalls everything
+__rbenv_uninstall() {
+  printf 'rm -rf ~/.rbenv\n'
+  rm -rf ~/.rbenv
+  printf 'rm -rf %s/local/rbenv.zsh\n' "$ZSH"
+  rm -rf $ZSH/local/rbenv.zsh
+}
+
+# action
+case "$1" in
+  install)
+    __rbenv_install_all
+    ;;
+  uninstall)
+    __rbenv_uninstall
+    ;;
+  *)
+    printf 'rbenv-installer (install|uninstall)\n'
+esac
