@@ -42,8 +42,8 @@ EOF
 
 # uninstalls everything
 __rbenv_uninstall() {
-  printf 'rm -rf ~/.rbenv\n'
-  rm -rf ~/.rbenv
+  printf 'rm -rf %s\n' "$__rbenv_home"
+  rm -rf "$__rbenv_home"
   printf 'rm -rf %s/local/rbenv.zsh\n' "$ZSH"
   rm -rf $ZSH/local/rbenv.zsh
 }
