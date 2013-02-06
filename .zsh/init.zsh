@@ -1,7 +1,7 @@
 # $ZSH/init.zsh
 
 # Our completions and functions.
-fpath=($ZSH/completions $ZSH/functions $fpath)
+fpath=($ZSH/vendor/completions $ZSH/functions $fpath)
 
 # Source all scripts in lib and local.
 for d in 'etc' 'local'; do
