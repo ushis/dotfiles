@@ -4,7 +4,7 @@
 fpath=($ZSH/completions $ZSH/functions $fpath)
 
 # Source all scripts in lib and local.
-for d in 'lib' 'local'; do
+for d in 'etc' 'local'; do
   for f ($ZSH/$d/*.(sh|zsh)(N)); do
     source "$f"
   done
