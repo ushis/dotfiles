@@ -38,6 +38,8 @@ autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
 
 # Keybindings
+bindkey '^[[A'  up-line-or-search
+bindkey '^[[B'  down-line-or-search
 bindkey "^[OH"  beginning-of-line
 bindkey "^[OF"  end-of-line
 bindkey "^[[3~" delete-char
