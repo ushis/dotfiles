@@ -20,6 +20,7 @@ _arguments -C \
   '(-C --clipboard)'{-C,--clipboard}'[Copy password to clipboard]' \
   '(-d --delete)'{-d,--delete}'[Delete a password from the database]:Password ID' \
   '(-D --database)'{-D,--database}'[Specify the path to the database]:Database:_files' \
+  '(-f --force)'{-f,--force}'[Override existing password]' \
   '(-g --get)'{-g,--get}'[Display password]:Password ID' \
   '(-G --generate)'{-G,--generate}'[Generate a new for ID]:ID' \
   '--gpgdir[Specify a custom GPG directory]:GPG directory:_dirs' \
