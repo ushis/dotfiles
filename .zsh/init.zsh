@@ -5,11 +5,9 @@ ZSH=~/.zsh
 # Our completions and functions.
 fpath=($ZSH/completions $ZSH/functions $fpath)
 
-# Source all scripts in lib and local.
-for d in 'etc' 'local'; do
-  for f ($ZSH/$d/*.(sh|zsh)(N)); do
-    source "$f"
-  done
+# Source all scripts in etc and local.
+for f ($ZSH/{etc,local}/*.(sh|zsh)(N)); do
+  source "$f"
 done
 
 # Autoload functions.
