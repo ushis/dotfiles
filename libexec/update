@@ -1,3 +1,5 @@
 #!/usr/bin/env zsh
 
-git --git-dir="$DOTFILES/.git" pull
+cd "$DOTROOT"
+git pull
+cd - > /dev/null

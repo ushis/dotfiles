@@ -1,6 +1,6 @@
 # ~/.zsh/functions/dotfiles
 
-local cmd="${DOTFILES}/libexec/${(j:-:)@}"
+local cmd="${DOTROOT}/libexec/${(j:-:)@}"
 
 if [ ! -x "$cmd" -o -d "$cmd" ]; then
   printf 'Unknown command: %s\n' "${(j: :)@}"

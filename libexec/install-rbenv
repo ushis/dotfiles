@@ -34,7 +34,7 @@ plugins=(
 # action
 if [ "${0##*/}" = 'uninstall-rbenv' ]; then
   remove "$target"
-  remove "$DOTFILES/.zsh/local/rbenv.sh"
+  remove "$DOTROOT/.zsh/local/rbenv.sh"
 else
   install "$repo" "$target"
 
@@ -42,7 +42,7 @@ else
     install_plugin "$plugin" "$target"
   done
 
-  cat > "$DOTFILES/.zsh/local/rbenv.zsh" <<EOF
+  cat > "$DOTROOT/.zsh/local/rbenv.zsh" <<EOF
 export PATH=\$HOME/.rbenv/bin:\$PATH
 eval "\$(rbenv init -)"
 EOF

@@ -3,15 +3,17 @@
 setopt extended_glob
 
 install() {
-  local override target="$2/$(basename $1)"
+  local override target="$2/${1##*/}"
 
   if [ -e "$target" ]; then
     vared -p "Override $target? [y|N] " override
     [[ "$override" =~ '[yY]' ]] || return 1
+    printf 'rm -rf %s\n' "$target"
+    rm -rf "$target"
   fi
 
-  printf "ln -fs %s %s\n" "$1" "$target"
-  ln -fs "$1" "$target"
+  printf 'ln -s %s %s\n' "$1" "$target"
+  ln -s "$1" "$target"
 }
 
 install_all() {
@@ -21,7 +23,7 @@ install_all() {
     install "$p" "$2"
   done
 
-  printf 'export DOTFILES="%s"\n' "$1" > "$1/.zsh/local/dotfiles.zsh"
+  printf 'export DOTROOT="%s"\n' "$1" > "$1/.zsh/local/dotfiles.zsh"
 }
 
 install_all "$(cd "$(dirname "$0")"; pwd)" "$HOME"
