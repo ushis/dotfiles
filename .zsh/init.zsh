@@ -1,4 +1,6 @@
-# $ZSH/init.zsh
+# ~/.zsh/init.zsh
+
+ZSH=~/.zsh
 
 # Our completions and functions.
 fpath=($ZSH/vendor/completions $ZSH/functions $fpath)

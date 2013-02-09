@@ -1,7 +1,9 @@
-# $ZSH/prompt.zsh
+# ~/.zsh/etc/prompt.zsh
 
 # Colors
 autoload colors; colors;
+
+# Use PROMPT
 setopt prompt_subst
 
 # Source __git_ps1

@@ -1,0 +1,50 @@
+#!/usr/bin/env zsh
+
+# installs something
+install() {
+  printf 'git clone %s %s\n' "$1" "$2"
+  git clone "$1" "$2"
+}
+
+# installs a plugin
+install_plugin() {
+  install "$1" "$2/plugins/${${1##*/}%%.*}"
+}
+
+# uninstalls everything
+uninstall() {
+  printf 'rm -rf %s\n' "$1"
+  rm -rf "$1"
+  printf 'rm -rf %s/.zsh/local/rbenv.zsh\n' "$DOTFILES"
+  rm -rf "$DOTFILES/.zsh/local/rbenv.zsh"
+}
+
+# rbenv target dir
+target=~/.rbenv
+
+# rbenv git repo
+repo='git://github.com/sstephenson/rbenv.git'
+
+# rbenv plugins i need
+plugins=(
+  'git://github.com/sstephenson/ruby-build.git'
+  'git://github.com/rkh/rbenv-update.git'
+  'git://github.com/chriseppstein/rbenv-each.git'
+)
+
+# action
+if [ "${0##*/}" = 'uninstall-rbenv' ]; then
+  uninstall "$target"
+  exit 0
+fi
+
+install "$repo" "$target" || exit 1
+
+for plugin in $plugins; do
+  install_plugin "$plugin" "$target"
+done
+
+cat > "$DOTFILES/.zsh/local/rbenv.zsh" <<EOF
+export PATH=\$HOME/.rbenv/bin:\$PATH
+eval "\$(rbenv init -)"
+EOF

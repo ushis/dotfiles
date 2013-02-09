@@ -1,4 +1,4 @@
-# $ZSH/functions/random
+# ~/.zsh/functions/random
 
 local n=64;
 [ $# -gt 0 ] && n="$1"

@@ -1,2 +1,2 @@
-# $ZSH/lib/bin.zsh
+# ~/.zsh/etc/bin.zsh
 export PATH=~/.bin:$PATH
