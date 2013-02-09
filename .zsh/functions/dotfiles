@@ -1,10 +1,10 @@
 # ~/.zsh/functions/dotfiles
 
-local cmd="${(j:-:)@}"
+local cmd="${DOTFILES}/libexec/${(j:-:)@}"
 
-if [ -x "$DOTFILES/libexec/$cmd" ]; then
-  "$DOTFILES/libexec/$cmd"
-else
-  printf 'dotfiles: command not found: %s\n' "${(j: :)@}"
+if [ ! -x "$cmd" -o -d "$cmd" ]; then
+  printf 'Unknown command: %s\n' "${(j: :)@}"
   return 1
 fi
+
+"$cmd"

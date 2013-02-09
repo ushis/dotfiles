@@ -1,0 +1,11 @@
+#compdef dotfiles
+
+local f c cmd
+typeset -A opt_args
+
+(( c = ${#words} - 1 ))
+
+for f in $DOTFILES/libexec/${(j:-:)${words[2,-1]}}*; do
+  cmd=("${(s/-/)${f##*/}}")
+  [ ${#cmd} -lt $c ] || compadd "${cmd[$c]}"
+done
