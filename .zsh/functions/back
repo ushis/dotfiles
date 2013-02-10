@@ -1,0 +1,10 @@
+# ~/.zsh/functions/back
+
+if [ ${#$(dirs)} -le 1 ]; then
+  pushd $HOME >/dev/null
+else
+  popd >/dev/null
+fi
+
+printf '%s%s%s %s\n' \
+  "${fg[blue]}" ${$(dirs)[1]} "$reset_color" ${(j: :)$(dirs)[2,-1]}
