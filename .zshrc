@@ -17,7 +17,10 @@ alias du='du -c -h'
 alias mkdir='mkdir -p -v'
 alias ping='ping -c 3'
 alias tree='tree -aAC --dirsfirst'
-alias lg='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias lg='git log --graph --full-history --all --color \
+  --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+
+# Navigation
 alias - -='cd -'
 alias ..='cd ..'
 alias ...='cd ../..'
