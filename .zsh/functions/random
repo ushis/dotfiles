@@ -1,5 +1,7 @@
 # ~/.zsh/functions/random
 
-local n=64;
-[ $# -gt 0 ] && n="$1"
-echo $(tr -cd '[:print:]' < /dev/urandom | head -c "$n")
+# Fallback to 64, if no length is specified.
+local n=64; [ $# -gt 0 ] && n="${1}"
+
+# We want all printable characters, but not: whitespace \ [ ] ' "
+echo "$(tr -d "\\\[\]\'\"" </dev/urandom | tr -cd '[:graph:]' | head -c "${n}")"
