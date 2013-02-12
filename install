@@ -7,7 +7,7 @@ install() {
 
   if [ -e "${target}" ]; then
     vared -p "Override ${target}? [y|N] " override
-    [[ "${override}" =~ '[yY]' ]] || return 1
+    [[ "${override}" == [yY]* ]] || return 1
     printf 'rm -rf %s\n' "${target}"
     rm -rf "${target}"
   fi
