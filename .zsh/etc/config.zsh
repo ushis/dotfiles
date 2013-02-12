@@ -14,7 +14,7 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-# Autocompletion
+# Completion
 unsetopt menu_complete
 unsetopt flowcontrol
 setopt auto_menu
@@ -38,15 +38,11 @@ autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
 
 # Keybindings
-bindkey '^[[A'  up-line-or-search
-bindkey '^[[B'  down-line-or-search
-bindkey "^[OH"  beginning-of-line
-bindkey "^[OF"  end-of-line
-bindkey "^[[3~" delete-char
-
-# Correction
-#setopt correct_all
-#
-#alias man='nocorrect man'
-#alias mv='nocorrect mv'
-#alias mkdir='nocorrect mkdir'
+bindkey '^[[A'    up-line-or-search     # Up
+bindkey '^[[B'    down-line-or-search   # Down
+bindkey '^[OH'    beginning-of-line     # Home
+bindkey '^[OF'    end-of-line           # End
+bindkey '^[[3~'   delete-char           # Del
+bindkey '^[[1;5C' forward-word          # Ctrl-Right
+bindkey '^[[1;5D' backward-word         # Ctrl-Left
+bindkey '^[.'     copy-prev-shell-word  # Alt-.
