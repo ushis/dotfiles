@@ -11,9 +11,7 @@ for f ("${ZSH}"/{etc,local}/*.{z,}sh(.N)); do
 done
 
 # Autoload functions.
-for f ("${ZSH}"/functions/*(.N:t)); do
-  autoload "${f}"
-done
+autoload "${ZSH}"/functions/*(.N:t)
 
 # Init completion.
 autoload -U compinit

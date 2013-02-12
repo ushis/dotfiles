@@ -2,9 +2,9 @@
 
 local cmd="${DOTROOT}/libexec/${(j:-:)@}"
 
-if [ ! -x "$cmd" -o -d "$cmd" ]; then
+if ! type "${cmd}" &>/dev/null; then
   printf 'Unknown command: %s\n' "${(j: :)@}"
   return 1
 fi
 
-"$cmd"
+${cmd}
