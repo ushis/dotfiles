@@ -3,27 +3,27 @@
 setopt extended_glob
 
 install() {
-  local override target="$2/${1##*/}"
+  local override target="${2}/${1##*/}"
 
-  if [ -e "$target" ]; then
-    vared -p "Override $target? [y|N] " override
-    [[ "$override" =~ '[yY]' ]] || return 1
-    printf 'rm -rf %s\n' "$target"
-    rm -rf "$target"
+  if [ -e "${target}" ]; then
+    vared -p "Override ${target}? [y|N] " override
+    [[ "${override}" =~ '[yY]' ]] || return 1
+    printf 'rm -rf %s\n' "${target}"
+    rm -rf "${target}"
   fi
 
-  printf 'ln -s %s %s\n' "$1" "$target"
-  ln -s "$1" "$target"
+  printf 'ln -s %s %s\n' "${1}" "${target}"
+  ln -s "${1}" "${target}"
 }
 
 install_all() {
   local p
 
-  for p in $1/.*~$1/.git~$1/.gitignore; do
-    install "$p" "$2"
+  for p in "${1}"/.*~"${1}/.git"~"${1}/.gitignore"; do
+    install "${p}" "${2}"
   done
 
-  printf 'export DOTROOT="%s"\n' "$1" > "$1/.zsh/local/dotfiles.zsh"
+  printf 'export DOTROOT="%s"\n' "${1}" > "${1}/.zsh/local/dotfiles.zsh"
 }
 
-install_all "$(cd "$(dirname "$0")"; pwd)" "$HOME"
+install_all "$(cd "${0%/*}"; pwd)" "${HOME}"

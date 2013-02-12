@@ -1,7 +1,7 @@
 # ~/.zshrc
 
 # Load zsh config
-source ~/.zsh/init.zsh
+source "${HOME}/.zsh/init.zsh"
 
 # Some vars
 export EDITOR=vim

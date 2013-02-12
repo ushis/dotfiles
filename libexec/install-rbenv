@@ -2,20 +2,20 @@
 
 # installs something
 install() {
-  [ -e "$2" ] && return 1
-  printf 'git clone %s %s\n' "$1" "$2"
-  git clone "$1" "$2"
+  [ -e "${2}" ] && return 1
+  printf 'git clone %s %s\n' "${1}" "${2}"
+  git clone "${1}" "${2}"
 }
 
 # installs a plugin
 install_plugin() {
-  install "$1" "$2/plugins/${${1##*/}%%.*}"
+  install "${1}" "${2}/plugins/${${1##*/}%%.*}"
 }
 
 # uninstalls everything
 remove() {
-  printf 'rm -rf %s\n' "$1"
-  rm -rf "$1"
+  printf 'rm -rf %s\n' "${1}"
+  rm -rf "${1}"
 }
 
 # rbenv target dir
@@ -31,19 +31,21 @@ plugins=(
   'git://github.com/chriseppstein/rbenv-each.git'
 )
 
-# action
+# Uninstall
 if [ "${0##*/}" = 'uninstall-rbenv' ]; then
-  remove "$target"
-  remove "$DOTROOT/.zsh/local/rbenv.sh"
-else
-  install "$repo" "$target"
+  remove "${target}"
+  remove "${DOTROOT}/.zsh/local/rbenv.sh"
+  exit 0
+fi
 
-  for plugin in $plugins; do
-    install_plugin "$plugin" "$target"
-  done
+# Install
+install "${repo}" "${target}"
 
-  cat > "$DOTROOT/.zsh/local/rbenv.zsh" <<EOF
-export PATH=\$HOME/.rbenv/bin:\$PATH
+for plugin in $plugins; do
+  install_plugin "${plugin}" "${target}"
+done
+
+cat > "${DOTROOT}/.zsh/local/rbenv.zsh" <<EOF
+export PATH="\${HOME}/.rbenv/bin:\${PATH}"
 eval "\$(rbenv init -)"
 EOF
-fi

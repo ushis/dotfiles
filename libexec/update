@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
 
-cd "$DOTROOT"
+pushd "${DOTROOT}"
 git pull
-cd - > /dev/null
+popd

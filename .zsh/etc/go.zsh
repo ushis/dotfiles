@@ -1,2 +1,2 @@
 # ~/.zsh/etc/go.zsh
-export GOPATH=~/.go
+export GOPATH="${HOME}/.go"
