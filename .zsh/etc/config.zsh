@@ -33,9 +33,13 @@ setopt auto_name_dirs
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-# Smart URLS
+# Smart URLs
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
+
+# Edit command line
+autoload -U edit-command-line
+zle -N edit-command-line
 
 # Keybindings
 bindkey '^[[A'    up-line-or-search     # Up
@@ -46,3 +50,4 @@ bindkey '^[[3~'   delete-char           # Del
 bindkey '^[[1;5C' forward-word          # Ctrl-Right
 bindkey '^[[1;5D' backward-word         # Ctrl-Left
 bindkey '^[.'     copy-prev-shell-word  # Alt-.
+bindkey '^E'      edit-command-line     # Ctrl-e
