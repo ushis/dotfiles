@@ -9,10 +9,13 @@ fpath=("${ZSH}/completions" "${ZSH}/functions" $fpath)
 for f in "${ZSH}"/{etc,local}/*.{z,}sh(.N); do
   source "${f}"
 done
+unset f
 
 # Autoload functions.
 autoload -U "${ZSH}"/functions/*(.N:t)
 
+# Clean up
+unset ZSH
+
 # Init completion.
-autoload -U compinit
-compinit
+autoload -U compinit; compinit
