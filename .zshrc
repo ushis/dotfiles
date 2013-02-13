@@ -31,6 +31,11 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# Disable globbing
+alias calc='noglob calc'
+alias rake='noglob rake'
+alias rsync='noglob rsync'
+
 # Shut down
 alias reboot='sudo systemctl reboot'
 alias poweroff='sudo systemctl poweroff'
