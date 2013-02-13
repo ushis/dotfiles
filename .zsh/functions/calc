@@ -1,0 +1,15 @@
+# ~/.zsh/functions/calc
+
+# Load math functions such as sin() and cos().
+#
+# See: man zshmodules
+zmodload zsh/mathfunc
+
+# Need some help?
+if [ $# -lt 1 ]; then
+  print "Usage: ${0} <math>"
+  return 1
+fi
+
+# Do the math.
+print $(( $* ))
