@@ -33,7 +33,7 @@ plugins=(
 )
 
 # Uninstall
-if [ "${0##*/}" == 'uninstall-rbenv' ]; then
+if [[ "${0##*/}" == 'uninstall-rbenv' ]]; then
   remove "${target}"
   remove "${DOTROOT}/.zsh/local/rbenv.sh"
   exit 0
