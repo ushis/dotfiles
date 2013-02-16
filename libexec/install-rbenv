@@ -46,7 +46,7 @@ for plugin in $plugins; do
   install_plugin "${plugin}" "${target}"
 done
 
-cat > "${DOTROOT}/.zsh/local/rbenv.zsh" <<EOF
+cat > "${DOTROOT}/.zsh/local/rbenv.sh" <<EOF
 export PATH="\${HOME}/.rbenv/bin:\${PATH}"
 eval "\$(rbenv init - --no-rehash zsh)"
 EOF
