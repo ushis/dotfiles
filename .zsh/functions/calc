@@ -5,11 +5,16 @@
 # See: man zshmodules
 zmodload zsh/mathfunc
 
-# Need some help?
-if [ $# -lt 1 ]; then
-  print "Usage: ${0} <math>"
-  return 1
+# Execute the command line arguments and exit...
+if [ $# -gt 0 ]; then
+  print $(( $* ))
+  return $?
 fi
 
-# Do the math.
-print $(( $* ))
+# ...or launch interactive mod.
+local line=''
+
+while vared -e -p '> ' line; do
+  print $(( line ))
+  line=''
+done
