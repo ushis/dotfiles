@@ -21,22 +21,25 @@ set shiftwidth=2                " Number of spaces for (auto)indent.
 set expandtab                   " Use spaces instead of tabs.
 set number 	                    " Turn on line numbers.
 set numberwidth=4               " Up to 9999.
+set colorcolumn=80              " Highlight column 80.
 
 set mouse=a                     " Enable mouse.
 syntax on                       " Enable syntax highlighting.
 filetype plugin indent on       " Enable file type detection.
 
 
-" Display line numbers.
-highlight LineNr
+"
+" Colors
+"
+
+" Column 80.
+hi ColorColumn ctermbg=233 guibg=#121212
+
+" Line numbers.
+hi LineNr
   \ term=bold
   \ cterm=None ctermfg=DarkGrey ctermbg=None
   \ gui=bold guifg=DarkGrey guibg=None
-
-
-" Highlight long lines.
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 
 
 "
