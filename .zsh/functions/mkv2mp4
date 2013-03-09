@@ -1,0 +1,18 @@
+# ~/.zsh/functions/mkv2mp4
+#
+# Convert mkv to mp4 using ffmpeg.
+
+local f
+
+if [ $# -eq 0 ]; then
+  printf 'Usage: %s <file> [<file> ...]\n' "${0}"
+  return 1
+fi
+
+for f in $*; do
+  if [ -r "${f}" ]; then
+    ffmpeg -i "${f}" -vcodec copy -acodec aac -qscale 0 -strict -2 "${f%.*}.mp4"
+  else
+    printf 'I am not able to read this file: %s\n' "${f}"
+  fi
+done
