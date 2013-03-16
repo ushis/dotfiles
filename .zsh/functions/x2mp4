@@ -1,0 +1,33 @@
+# ~/.zsh/functions/x2mp4
+#
+# Convert mkv to mp4 using ffmpeg.
+
+local f vcodec
+
+if [ $# -eq 0 ]; then
+  printf 'Usage: %s <file> [<file> ...]\n' "${0}"
+  return 1
+fi
+
+for f in $*; do
+  if [[ ! -r "${f}" ]]; then
+    printf 'I am not able to read this file: %s\n' "${f}"
+    continue
+  fi
+
+  if [[ "${f##*.}" == 'mkv' ]]; then
+    vcodec='copy'
+  else
+    vcodec='libx264'
+  fi
+
+  ffmpeg                \
+    -i "${f}"           \
+    -vcodec "${vcodec}" \
+    -acodec aac         \
+    -qscale:a 0         \
+    -qscale:v 0         \
+    -strict -2          \
+    -threads 0          \
+    "${f%.*}.mp4"
+done
