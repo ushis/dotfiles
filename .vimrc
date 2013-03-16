@@ -37,7 +37,7 @@ filetype plugin indent on       " Enable file type detection.
 hi ColorColumn ctermbg=233 guibg=#121212
 
 " Current line.
-hi CursorLine cterm=NONE ctermbg=233 guibg=#121212
+hi CursorLine cterm=NONE ctermbg=232 guibg=#080808
 
 " Line numbers.
 hi LineNr
