@@ -22,6 +22,7 @@ set expandtab                   " Use spaces instead of tabs.
 set number 	                    " Turn on line numbers.
 set numberwidth=4               " Up to 9999.
 set colorcolumn=80              " Highlight column 80.
+set cursorline                  " Highlight current line.
 
 set mouse=a                     " Enable mouse.
 syntax on                       " Enable syntax highlighting.
@@ -34,6 +35,9 @@ filetype plugin indent on       " Enable file type detection.
 
 " Column 80.
 hi ColorColumn ctermbg=233 guibg=#121212
+
+" Current line.
+hi CursorLine cterm=NONE ctermbg=233 guibg=#121212
 
 " Line numbers.
 hi LineNr
