@@ -28,6 +28,5 @@ for f in $*; do
     -qscale:a 0         \
     -qscale:v 0         \
     -strict -2          \
-    -threads 0          \
     "${f%.*}.mp4"
 done
