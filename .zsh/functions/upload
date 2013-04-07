@@ -1,0 +1,11 @@
+# ~/.zsh/functions/upload
+
+# Upload files to flag.io
+
+for f in $*; do
+  if [ ! -r "${f}" ]; then
+    printf "Can't read: %s\n" "${f}"
+  else
+    curl -sT "${f}" flag.io
+  fi
+done
