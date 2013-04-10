@@ -1,0 +1,19 @@
+# ~/.zsh/functions/put
+
+# Upload files to honkgong
+local f url='https://put.honkgong.info'
+
+# Read from stdin, if there are no arguments.
+if [ $# -eq 0 ]; then
+  curl --data-binary @- "${url}" </dev/stdin
+  return $?
+fi
+
+# Try to send every provided file.
+for f in $*; do
+  if [ ! -r "${f}" ]; then
+    print "Can't read:" "${f}" 1>&2
+  else
+    curl -T "${f}" "${url}"
+  fi
+done
