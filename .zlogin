@@ -1,6 +1,6 @@
 # ~/.zlogin
 
 # Start tmux on login shells.
-if [ -z "${TMUX}" ]; then
+if test -z "${TMUX}" && type tmux &>/dev/null; then
   tmux attach &>/dev/null || tmux new-session
 fi
