@@ -1,7 +1,6 @@
 # ~/.zsh/functions/x2mp4
-#
-# Convert mkv to mp4 using ffmpeg.
 
+# Convert mkv to mp4 using ffmpeg.
 local f vcodec
 
 if [ $# -eq 0 ]; then
