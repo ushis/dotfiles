@@ -1,0 +1,7 @@
+# ~/.zsh/functions/http-serve
+
+if type mongoose &>/dev/null; then
+  mongoose
+else
+  python -m http.server
+fi
