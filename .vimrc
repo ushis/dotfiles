@@ -57,20 +57,20 @@ nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
 " Save file with Ctrl-Y.
-map <C-Y> :w<Enter>
-imap <C-Y> <Esc><C-Y><Enter>
+map  <silent> <C-Y> :w<Enter>
+imap <silent> <C-Y> <Esc>:w<Enter>
 
 " Use Q for formatting.
 map Q gq
 
 " Undo Ctrl-U after inserting a line break
-inoremap <C-U> <C-G>u<C-U>
+inoremap <silent> <C-U> <C-G>u<C-U>
 
 " Toggle NerdTree Ctrl-n.
-nmap <silent> <c-n> :NERDTreeToggle<CR>
+nmap <silent> <C-N> :NERDTreeToggle<CR>
 
 " Toggle Tagbar Ctrl-m
-nmap <silent> <c-m> :TagbarToggle<CR>
+nmap <silent> <C-M> :TagbarToggle<CR>
 
 " Unhighlight search results.
 nmap -q :nohlsearch<CR>
