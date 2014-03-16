@@ -1,2 +1,2 @@
 export PWM_HOME="${HOME}/.pwm"
-export PWM_EMAIL="ushi@honkgong.info"
+export PWM_KEY='0F957DE0'
