@@ -69,8 +69,8 @@ inoremap <silent> <C-U> <C-G>u<C-U>
 " Toggle NerdTree Ctrl-n.
 nmap <silent> <C-N> :NERDTreeToggle<CR>
 
-" Toggle Tagbar Ctrl-m
-nmap <silent> <C-M> :TagbarToggle<CR>
+" Toggle Tagbar Ctrl-b
+nmap <silent> <C-B> :TagbarToggle<CR>
 
 " Unhighlight search results.
 nmap -q :nohlsearch<CR>

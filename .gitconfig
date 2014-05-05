@@ -10,3 +10,5 @@
   editor = vim
 [help]
   autocorrect = 1
+[grep]
+	extendRegexp = true
