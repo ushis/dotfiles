@@ -44,8 +44,8 @@ zle -N edit-command-line
 # Keybindings
 bindkey '^[[A'    up-line-or-search     # Up
 bindkey '^[[B'    down-line-or-search   # Down
-bindkey '^[OH'    beginning-of-line     # Home
-bindkey '^[OF'    end-of-line           # End
+bindkey '^[[H'    beginning-of-line     # Home
+bindkey '^[[F'    end-of-line           # End
 bindkey '^[[3~'   delete-char           # Del
 bindkey '^[[1;5C' forward-word          # Ctrl-Right
 bindkey '^[[1;5D' backward-word         # Ctrl-Left
