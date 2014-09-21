@@ -3,5 +3,5 @@
 # Fallback to 64, if no length is specified.
 local n=64; [ $# -gt 0 ] && n="${1}"
 
-# We want all printable characters, but not: whitespace \ ' "
-tr -cd '[:graph:]' </dev/urandom | tr -d "\\\'\"" | head -c "${n}" && print
+# We want a random hex of length n.
+xxd -p -c "${n}" </dev/urandom | head -c "${n}" && print
