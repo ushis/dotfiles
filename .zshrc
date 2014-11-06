@@ -21,8 +21,6 @@ alias tree='tree -aAC --dirsfirst'
 # Util
 alias get='curl -#RLOC -'
 alias ssh-tunnel='ssh -ND 127.0.0.1:6666'
-alias lg='git log --graph --full-history --all --color \
-  --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
 # Navigation
 alias - -='cd -'
