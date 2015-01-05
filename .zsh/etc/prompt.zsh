@@ -10,4 +10,14 @@ setopt prompt_subst
 source "${ZSH}/vendor/git-prompt.sh"
 
 # [hostname][dirname](gitbranch)%
-PROMPT='%{${fg[yellow]}%}[%m][%c]$(__git_ps1 "(%s)")%#%{${reset_color}%} '
+___git_prompt() {
+  local branch suffix
+  branch="$(__git_ps1 '%s')"
+  test -z "${branch}" && return
+  test -n "$(git ls-files --others --exclude-standard 2> /dev/null)" && suffix='°'
+  git diff --quiet 2> /dev/null || suffix='*'
+  git diff --cached --quiet 2> /dev/null || suffix='^'
+  printf '(%s%s)' "${branch}" "${suffix}"
+}
+
+PROMPT='%{${fg[yellow]}%}[%m][%c]$(___git_prompt)%#%{${reset_color}%} '
