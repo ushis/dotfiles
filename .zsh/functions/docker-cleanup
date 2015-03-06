@@ -1,0 +1,5 @@
+# ~/.zsh/functions/docker-cleanup
+
+for img in $(docker ps -f status=exited | grep -v CONTAINER | cut -d' ' -f1); do
+  docker rm "${img}"
+done
