@@ -14,6 +14,7 @@ alias tree='tree -aAC --dirsfirst'
 # Shortcuts
 alias rs='rails s'
 alias rc='rails c'
+alias dc='docker-compose'
 
 # Util
 alias get='curl -#RLOC -'
