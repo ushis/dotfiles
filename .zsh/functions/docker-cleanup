@@ -1,5 +1,36 @@
 # ~/.zsh/functions/docker-cleanup
+#
+# Remove exited containers and dangling images
 
-for img in $(docker ps -f status=exited | grep -v CONTAINER | cut -d' ' -f1); do
-  docker rm "${img}"
-done
+# Remove exited containers
+__docker-cleanup-containers() {
+  print 'Removing exited containers...'
+
+  for c in $(docker ps -f status=exited -q); do
+    docker rm "${c}" || return 1
+  done
+}
+
+# Remove dangling images
+__docker-cleanup-images() {
+  print 'Removing dangling images...'
+
+  for i in $(docker images -f dangling=true -q); do
+    docker rmi "${i}" || return 1
+  done
+}
+
+if test $# -eq 0; then
+  __docker-cleanup-containers && __docker-cleanup-images
+  return $?
+fi
+
+local cmd="__docker-cleanup-${1}"
+
+if type "${cmd}" &>/dev/null; then
+  ${cmd}
+  return $?
+fi
+
+printf 'usage: %s [containers|images]\n' "${0}"
+return 1
