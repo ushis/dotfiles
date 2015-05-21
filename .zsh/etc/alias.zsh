@@ -18,6 +18,7 @@ alias dc='docker-compose'
 
 # Util
 alias get='curl -#RLOC -'
+alias myip='curl https://myip.honkgong.info'
 alias ssh-tunnel='ssh -ND 127.0.0.1:6666'
 
 # Navigation
