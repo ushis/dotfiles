@@ -32,6 +32,7 @@ filetype plugin indent on       " Enable file type detection.
 "
 " Colors
 "
+colorscheme peachpuff
 
 " Column 80.
 hi ColorColumn ctermbg=233 guibg=#121212
@@ -44,7 +45,6 @@ hi LineNr
   \ term=bold
   \ cterm=None ctermfg=DarkGrey ctermbg=None
   \ gui=bold guifg=DarkGrey guibg=None
-
 
 "
 " Key mappings
