@@ -42,9 +42,8 @@ hi CursorLine cterm=NONE ctermbg=232 guibg=#080808
 
 " Line numbers.
 hi LineNr
-  \ term=bold
-  \ cterm=None ctermfg=DarkGrey ctermbg=None
-  \ gui=bold guifg=DarkGrey guibg=None
+  \ term=bold ctermfg=DarkGrey
+  \ gui=bold guifg=DarkGrey
 
 "
 " Key mappings
