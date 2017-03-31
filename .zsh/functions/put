@@ -14,6 +14,6 @@ for f in $*; do
   if [ ! -r "${f}" ]; then
     print "Can't read:" "${f}" 1>&2
   else
-    curl -T "${f}" "${url}"
+    curl -T "${f}" -H "Content-Type: $(file -b --mime-type ${f})" "${url}"
   fi
 done

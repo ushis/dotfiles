@@ -1,6 +1,11 @@
 " ~/.vimrc
 
 "
+" Init pathogen
+"
+call pathogen#infect()
+
+"
 " Settings
 "
 set nocompatible                " Use Vim settings.
@@ -27,7 +32,6 @@ set cursorline                  " Highlight current line.
 set mouse=a                     " Enable mouse.
 syntax on                       " Enable syntax highlighting.
 filetype plugin indent on       " Enable file type detection.
-
 
 "
 " Colors
